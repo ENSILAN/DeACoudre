@@ -1,0 +1,9 @@
+name: DeACoudre
+version: 1.0
+author: NathanFallet
+main: me.nathanfallet.ensilan.deacoudre.DeACoudre
+depend: [Core]
+api-version: 1.19
+commands:
+  deacoudre:
+    description: Gestion du Dé à coudre
