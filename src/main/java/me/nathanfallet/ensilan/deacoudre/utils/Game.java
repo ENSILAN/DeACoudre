@@ -248,11 +248,6 @@ public class Game extends AbstractGame {
 
 	// Go to next jumper
 	public void nextJumper() {
-		// Get players again if needed
-		if (currentTurn == null || !currentTurn.hasNext()) {
-			currentTurn = getPlayers().iterator();
-		}
-
 		// Handle current jumper
 		if (currentJumper != null) {
 			DACPlayer zp = DeACoudre.getInstance().getPlayer(currentJumper.getUniqueId());
@@ -271,6 +266,9 @@ public class Game extends AbstractGame {
 		// Get next player
 		DACPlayer next = null;
 		do {
+			if (currentTurn == null || !currentTurn.hasNext()) {
+				currentTurn = getPlayers().iterator();
+			}
 			currentJumper = Bukkit.getPlayer(currentTurn.next());
 			next = DeACoudre.getInstance().getPlayer(currentJumper.getUniqueId());
 		} while (!next.isPlaying());
